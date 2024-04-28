@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from .db import SessionLocal
 from .models import Booking, Member, Facility
-from .schemas import BookingGet, UserGet
+from .schemas import BookingGet, UserGet, FacilityGet
 
 app = FastAPI()
 
@@ -19,7 +19,7 @@ def get_all_users(limit: int = 10, db: Session = Depends(get_session)):
     return db.query(Member).limit(limit).all()
 
 
-@app.get("/facility/all")
+@app.get("/facility/all", response_model=List[FacilityGet])
 def get_all_facilities(limit: int = 1, db: Session = Depends(get_session)):
     return db.query(Facility).limit(limit).all()
 

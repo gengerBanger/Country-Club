@@ -8,7 +8,7 @@ def main():
 
     endpoint = st.sidebar.selectbox(
         "What do you want to get?",
-        ['user','facility', 'booking']
+        ['user', 'facility', 'booking']
     )
     with st.sidebar:
         limit = st.slider(
@@ -26,8 +26,8 @@ def main():
     if execute_button:
         url = f"{BACKEND_PATH}/{endpoint}/all?limit={limit}"
         responce = requests.get(url)
-
-        st.write(responce.json())
+        data = responce.json()
+        st.write(data)
 
 if __name__ == "__main__":
     main()

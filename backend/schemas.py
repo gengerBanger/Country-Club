@@ -16,6 +16,13 @@ class UserGet(BaseModel):
     class Config:
         from_attributes = True
 
+class FacilityGet(BaseModel):
+    name: str = ""
+    member_cost: int
+    guest_cost: int
+    monthly_maintenance: int
+    class Config:
+        from_attributes = True
 
 class BookingGet(BaseModel):
     member_id: int

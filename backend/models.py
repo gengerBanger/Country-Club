@@ -52,6 +52,7 @@ class Booking(Base):
     start_time = Column(TIMESTAMP, name="starttime")
     slots = Column(Integer)
 
+
 if __name__ == "__main__":
     session = SessionLocal()
     results = (session.query(Booking)
