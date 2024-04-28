@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-BACKEND_PATH = "http://localhost:8000/"
+BACKEND_PATH = "https://country-club.onrender.com"
 
 def main():
     st.title('Country Club')
@@ -24,7 +24,7 @@ def main():
     )
 
     if execute_button:
-        url = f"{BACKEND_PATH}{endpoint}/all?limit={limit}"
+        url = f"{BACKEND_PATH}/{endpoint}/all?limit={limit}"
         responce = requests.get(url)
 
         st.write(responce.json())
