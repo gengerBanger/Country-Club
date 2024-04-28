@@ -25,8 +25,8 @@ def main():
 
     if execute_button:
         url = f"{BACKEND_PATH}/{endpoint}/all?limit={limit}"
-        responce = requests.get(url)
-        data = responce.json()
+        response = requests.get(url)
+        data = response.json()
         st.write(data)
 
 if __name__ == "__main__":

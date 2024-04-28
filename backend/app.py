@@ -20,7 +20,7 @@ def get_all_users(limit: int = 10, db: Session = Depends(get_session)):
 
 
 @app.get("/facility/all", response_model=List[FacilityGet])
-def get_all_facilities(limit: int = 1, db: Session = Depends(get_session)):
+def get_all_facilities(limit: int = 5, db: Session = Depends(get_session)):
     return db.query(Facility).limit(limit).all()
 
 

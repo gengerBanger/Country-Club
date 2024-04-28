@@ -30,7 +30,7 @@ class Facility(Base):
     member_cost = Column(Float, name="membercost")
     guest_cost = Column(Float, name="guestcost")
     initial_outlay = Column(Float, name="initialoutlay")
-    monthly_maintenance = Column(Float, name="monthlymaintencance")
+    monthly_maintenance = Column(Float, name="monthlymaintenance")
 
 
 class Booking(Base):
@@ -55,17 +55,15 @@ class Booking(Base):
 
 if __name__ == "__main__":
     session = SessionLocal()
-    results = (session.query(Booking)
-               .join(Member)
-               .filter(Member.surname == 'Smith')
+    results = (session.query(Facility)
                .limit(3)
                .all()
                )
-    for booking in results:
+    for facility in results:
         print(
             f'''
-                first_name = {booking.member.first_name}
-                surname = {booking.member.surname}
-                telephone = {booking.member.telephone}
-                start_time = {booking.start_time}'''
+                first_name = {facility.name}
+                surname = {facility.member_cost}
+                telephone = {facility.guest_cost}
+                start_time = {facility.monthly_maintenance}'''
         )

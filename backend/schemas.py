@@ -18,9 +18,10 @@ class UserGet(BaseModel):
 
 class FacilityGet(BaseModel):
     name: str = ""
-    member_cost: int
-    guest_cost: int
+    member_cost: float
+    guest_cost: float
     monthly_maintenance: int
+
     class Config:
         from_attributes = True
 
